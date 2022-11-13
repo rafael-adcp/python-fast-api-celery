@@ -19,14 +19,15 @@ case $1 in
     flower)
         echo "starting flower";
         cd /app/celery/
-        celery --broker="${CELERY_BROKER_URL}" flower --broker_api=http://guest:guest@localhost:15672/api/
+        #celery --broker="${CELERY_BROKER_URL}" flower --broker_api=http://guest:guest@localhost:15672/api/
         #celery -A tasks --broker=amqp://guest:guest@localhost:5672// flower
     
     ;;
     worker)
         echo "starting worker";
-        cd /app/celery/
-        celery -A tasks worker --loglevel=info
+        cd /app/workers/
+        watchmedo  auto-restart -- celery -A tasks worker -l debug -Q ${RABBIT_QUEUE_NAME} -Ofair --pool solo -n ${RABBIT_WORKER_NAME}
+        #--loglevel=info
     ;;
     *)
         echo "Invalid option!";

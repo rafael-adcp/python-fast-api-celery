@@ -33,7 +33,7 @@ services:
   rabbitmq:
     container_name: rabbitmq
     hostname: rabbitmq
-    image: rabbitmq:latest
+    image: rabbitmq:3.11.3-management
     ports:
       # port for workers
       - "5672:5672"

@@ -17,16 +17,9 @@ RUN pip install -r /requirements.txt
 
 #copying the different service start shell scripts to the root directory of the final image.
 
-RUN pwd
-RUN ls -l
-
 #COPY ./app/entrypoint.sh /entrypoint.sh
 COPY ./app /app
 RUN chmod +x app/entrypoint.sh
-
-RUN pwd
-RUN ls -l
-
 
 WORKDIR /app
 
