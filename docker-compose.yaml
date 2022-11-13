@@ -59,22 +59,22 @@ services:
     networks:
       - app-tier
 
-  # celery_flower: #Celery dashboard
-  #   container_name: celery_flower
-  #   build:
-  #     context: .
-  #     dockerfile: ./dockerfile
-  #   image: example_celery_flower
-  #   command: ["sh", "-c", "./entrypoint.sh flower"]
-  #   volumes:
-  #     - ./app:/app
-  #   env_file:
-  #     - config/dev.env
-  #   ports:
-  #     - 5555:5555
-  #   depends_on:
-  #     - rabbitmq
-  #   networks:
-  #     - app-tier
+  celery_flower: #Celery dashboard
+    container_name: celery_flower
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    image: example_celery_flower
+    command: ["sh", "-c", "./entrypoint.sh flower"]
+    volumes:
+      - ./app:/app
+    env_file:
+      - config/dev.env
+    ports:
+      - 5555:5555
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-tier
 
 

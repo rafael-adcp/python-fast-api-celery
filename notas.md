@@ -1,3 +1,5 @@
+https://flower.readthedocs.io/en/latest/prometheus-integration.html#start-flower-monitoring
+
 
 # command=celery 
 #     --app=%(ENV_CELERY_APP_PATH)s worker
