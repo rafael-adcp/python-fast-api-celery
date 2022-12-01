@@ -13,7 +13,6 @@ services:
       context: .
       dockerfile: ./dockerfile
     image: example_fastapi
-    # '/start' is the shell script used to run the service
     command: ["sh", "-c", "./entrypoint.sh api"]
     # this volume is used to map the files and folders on the host to the container
     # so if we change code on the host, code in the docker container will also be changed
