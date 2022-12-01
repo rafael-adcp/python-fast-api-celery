@@ -15,7 +15,7 @@ https://flower.readthedocs.io/en/latest/prometheus-integration.html#start-flower
 # https://docs.celeryq.dev/en/stable/userguide/configuration.html#std-setting-worker_prefetch_multiplier
 app.conf.worker_prefetch_multiplkier = 1
 
-class BaseTask(Task):
+class DefaultWorkerConfig(Task):
     max_retries = 10
     task_reject_on_worker_lost = True
 
